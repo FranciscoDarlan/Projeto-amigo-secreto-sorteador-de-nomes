@@ -33,25 +33,33 @@ function adicionar() {
 
 function sortear() {
     embaralharArray(amigos);
+
     let listaDeSorteio = document.getElementById('lista-sorteio');
-    listaDeSorteio.textContent = amigos;
-}
 
-function embaralharArray(parametrosRecebidoComQualquerNome) {
-    for (let indice = parametrosRecebidoComQualquerNome.length; indice; indice--) {
+    // fazer uma estrutura de repetição com for, mas poderia se o while ..
+    for (let i = 0; i < amigos.length; i++) {
 
-        const indiceAleatorio = Math.floor(Math.random() * indice);
-
-        // guarda de um índice aleatório da lista
-        const elemento = parametrosRecebidoComQualquerNome[indice - 1];
-        parametrosRecebidoComQualquerNome[indice - 1] = parametrosRecebidoComQualquerNome[indiceAleatorio];
-        parametrosRecebidoComQualquerNome[indiceAleatorio] = elemento;
-
-        //   [lista[indice - 1], lista[indiceAleatorio]] =
-        //      [lista[indiceAleatorio], lista[indice - 1]];
+        //tenho que criar uma estrutura de decisão como if
+        if (i == amigos.length - 1) {
+            listaDeSorteio.innerHTML = listaDeSorteio.innerHTML + amigos[i] + '-->' + amigos[0] + '<br>';
+            alert('caindo no if for ultima passagem')
+        } else {
+            listaDeSorteio.innerHTML = listaDeSorteio.innerHTML + amigos[i] + '-->' + amigos[i + 1] + '<br>';
+            alert('caindo no else passagem até terminar')
+        }
     }
 }
 
+function embaralharArray(parametrosRecebidoComQualquerNome) {
+    for (let i = parametrosRecebidoComQualquerNome.length; i; i--) {
+        const indiceAleatorio = Math.floor(Math.random() * i);
+
+        // guarda de um índice aleatório da lista
+        [parametrosRecebidoComQualquerNome[i - 1],
+        parametrosRecebidoComQualquerNome[indiceAleatorio]] = [parametrosRecebidoComQualquerNome[indiceAleatorio],
+        parametrosRecebidoComQualquerNome[i - 1]];
+    }
+}
 
 function reiniciar() {
     let lista = document.getElementById('lista-amigos');

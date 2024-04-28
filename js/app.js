@@ -11,6 +11,9 @@ function adicionar() {
         lista.textContent = lista.textContent + ', ' + nome.value;
     }
     nome.value = '';
+
+    atualizarLista();
+    atualizarSorteio();
 }
 
 
@@ -51,6 +54,13 @@ function sortear() {
     }
 }
 
+function excluirAmigo(paramtro) {
+    amigos.splice(paramtro, 1);
+
+    atualizarLista();
+    atualizarSorteio();
+}
+
 function embaralharArray(parametrosRecebidoComQualquerNome) {
     for (let i = parametrosRecebidoComQualquerNome.length; i; i--) {
         const indiceAleatorio = Math.floor(Math.random() * i);
@@ -59,6 +69,28 @@ function embaralharArray(parametrosRecebidoComQualquerNome) {
         [parametrosRecebidoComQualquerNome[i - 1],
         parametrosRecebidoComQualquerNome[indiceAleatorio]] = [parametrosRecebidoComQualquerNome[indiceAleatorio],
         parametrosRecebidoComQualquerNome[i - 1]];
+    }
+}
+
+function atualizarSorteio() {
+    let sorteio = document.getElementById('lista-sorteio');
+    sorteio.innerHTML = '';
+}
+
+function atualizarLista() {
+    let lista = document.getElementById('lista-amigos');
+    lista.innerHTML = '';
+
+    for (let index = 0; index < amigos.length; index++) {
+
+        let variavelPCriadaNoFor = document.createElement('p');
+        variavelPCriadaNoFor.textContent = amigos[index];
+
+        variavelPCriadaNoFor.addEventListener('click', function () {
+            excluirAmigo(index);
+        });
+
+        lista.appendChild(variavelPCriadaNoFor); //um método, adiciona um novo elemento ao DOM, portanto é uma ação sendo executada com a clara intenção de expandir o DOM criando um filho para um elemento já existente, não importa o que está adicionando, mas precisa ser um elemento válido
     }
 }
 
@@ -117,7 +149,7 @@ function embaralhaDesaifoCodigoProntoCopiadoGoogle(lista) { // codigo copiado da
     }
 }
 embaralhaDesaifoCodigoProntoCopiadoGoogle(novaLista); //chamo a função para fazer o embaralhamento ..
-console.log(novaLista,  'chamdndo a novo lista embaralhada na primeira vez'); // aqui chamo a variavel que embaralhei ..
+console.log(novaLista, 'chamdndo a novo lista embaralhada na primeira vez'); // aqui chamo a variavel que embaralhei ..
 
 embaralhaDesaifoCodigoProntoCopiadoGoogle(novaLista); //chamo a função para fazer o embaralhamento NOVAMENTE ..
 console.log(novaLista, 'chamdno nova lista embaralhada'); // aqui chamo a variavel que embaralhei com novo embaralhamento..
@@ -127,7 +159,7 @@ function VerificandoDuplicatas(mandeOArrayAqui) { // codigo copiado da intenert 
     const conjunto = new Set(mandeOArrayAqui);
     const listaElementosUnicos = Array.from(conjunto);
 }
- 
+
 
 VerificandoDuplicatas(novaLista);// chamo a function copiada na internet e mando o parametro do meu codigo dentro da chamada.
 console.log(novaLista, 'cosole fora chamdno sozinho');

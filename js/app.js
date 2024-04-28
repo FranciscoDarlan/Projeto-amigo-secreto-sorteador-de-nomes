@@ -1,3 +1,8 @@
+// Declarar uma variável do tipo array para representar uma lista;
+// Adicionar um elemento a um array com a função push;
+// Utilizar um código já desenvolvido por terceiros, para realizar o embaralhamento de elementos em um array.
+
+
 let amigos = [];
 
 function adicionar() {

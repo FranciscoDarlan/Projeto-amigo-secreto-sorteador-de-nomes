@@ -29,6 +29,11 @@ function sortear() {
     embaralharArray(amigos);
     let listaDeSorteio = document.getElementById('lista-sorteio');
 
+    //fiz uma validação para verifica caso tenha nomes, irá limpar primeiro e depois sair dessa validação continuando o código ...
+    if (listaDeSorteio.value != '') {
+        listaDeSorteio.innerHTML = '';
+    }
+
     // fazer uma estrutura de repetição com for, mas poderia se o while ..
     for (let i = 0; i < amigos.length; i++) {
 

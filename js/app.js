@@ -14,6 +14,13 @@ function adicionar() {
         return;  // adiciono esse returne para encerrar minha aplicação aqui caso entre nesse if.. ***********
     }
 
+    //preciso outra validação, vamos utilizar o if
+    //tem que ser nessa posição pq vou verificar antes de fazer o resto ...
+    if (amigos.includes(nome.value)) {
+        alert(`Amigo ${nome.value} já foi Adicionado na lista !`);
+        return;  // adiciono esse returne para encerrar minha aplicação aqui caso entre nesse if.. ***********
+    }
+
     let lista = document.getElementById('lista-amigos');
     amigos.push(nome.value);
 

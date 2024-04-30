@@ -2,11 +2,18 @@
 // Adicionar um elemento a um array com a função push;
 // Utilizar um código já desenvolvido por terceiros, para realizar o embaralhamento de elementos em um array.
 
-
 let amigos = [];
 
 function adicionar() {
     let nome = document.getElementById('nome-amigo');
+
+    //preciso fazer uma validação, vamos utilizar o if
+    //tem que ser nessa posição pq vou verificar antes de fazer o resto ...
+    if (nome.value == '') {
+        alert('informe o nome do amigo');
+        return;  // adiciono esse returne para encerrar minha aplicação aqui caso entre nesse if.. ***********
+    }
+
     let lista = document.getElementById('lista-amigos');
     amigos.push(nome.value);
 
@@ -16,36 +23,11 @@ function adicionar() {
         lista.textContent = lista.textContent + ', ' + nome.value;
     }
     nome.value = '';
-
-    atualizarLista();
-    atualizarSorteio();
 }
-
-
-// AQUI TENTEI FAZER SOZINHO, MAS EXISTE UMA FUNÇÃO QUA JA FAZ O EMBARALHAMENTRO DOS ELEMENTOS DO ARRAY
-// ENTÃO NÃO PRECISARIA EU REIVENTAR A RODA, .length com Math.floor irá fazer isso ...
-// function sortear() {
-//     let lista = document.getElementById('lista-amigos');
-//     let listaDeSorteio = document.getElementById('lista-sorteio');
-
-//     if (lista == '') {
-//         alert('Por favor, Digite os nomes!')
-//     } else {
-//         listaDeSorteio.innerHTML = lista.textContent;
-//     }
-//     // embaralhar os nomes lista de sorteio
-//     // 1 - pegou - fulano
-//     // 2 - pegou - cicrano
-//     //imprimir na tela quem sorteaou quem 
-// }
 
 function sortear() {
     embaralharArray(amigos);
     let listaDeSorteio = document.getElementById('lista-sorteio');
-
-    if (amigos.length == []) {      // adicionando condição, caso o array esteja vazio apresentar um alert na tela
-        alert('Por favor, adicione o nome do amigo.');
-    }
 
     // fazer uma estrutura de repetição com for, mas poderia se o while ..
     for (let i = 0; i < amigos.length; i++) {

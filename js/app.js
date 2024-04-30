@@ -32,7 +32,7 @@ function sortear() {
         return; // return para con contiunar o código ..
     }
 
-    embaralharArray(amigos);
+    embaralharArray(amigos); //chamando a funcção e mandando o valor dentro dos parenteses (o valor aqui entro da variavel do meu codigo)
     let listaDeSorteio = document.getElementById('lista-sorteio');
 
     //fiz uma validação para verifica caso tenha nomes, irá limpar primeiro e depois sair dessa validação continuando o código ...
@@ -59,7 +59,7 @@ function excluirAmigo(paramtro) {
     atualizarSorteio();
 }
 
-function embaralharArray(parametrosRecebidoComQualquerNome) {
+function embaralharArray(parametrosRecebidoComQualquerNome) {   // função de embaralhar pego na internet
     for (let i = parametrosRecebidoComQualquerNome.length; i; i--) {
         const indiceAleatorio = Math.floor(Math.random() * i);
 

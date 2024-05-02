@@ -30,6 +30,7 @@ function adicionar() {
         lista.textContent = lista.textContent + ', ' + nome.value;
     }
     nome.value = '';
+    
 }
 
 function sortear() {
@@ -113,8 +114,6 @@ function reiniciar() {
 // Atualizar a visualização da lista após a remoção.
 
 // trabalho 2
-// Adicione os números 1,2,3 em uma variável chamada minhaLista e armazene os números 4, 5 e 6 separadamente em outra variável.
-// Use o método concat() para combinar as sequências de valores em uma nova lista chamadanovaLista. Imprima novaLista no console.
 
 // trabalho 3
 // Remova o último elemento de novaLista. 
@@ -131,6 +130,9 @@ function reiniciar() {
 
 //****************************************************************
 // trabalho 2
+// Adicione os números 1,2,3 em uma variável chamada minhaLista e armazene os números 4, 5 e 6 separadamente em outra variável.
+// Use o método concat() para combinar as sequências de valores em uma nova lista chamadanovaLista. Imprima novaLista no console.
+
 let minhaLista = [1, 2, 3];
 let minhaSegundaLista = [4, 5, 6];
 
